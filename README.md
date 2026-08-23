@@ -7,34 +7,24 @@ A deployed, interactive tool built on real DFT data from my own published resear
 > and screening for energy conversion and storage." *J. Mater. Chem.
 > A*, 2024, 12, 8502-8515. https://doi.org/10.1039/D3TA06190F
 
-> J. Ojih, C. Shen, A. Rodriguez, H. Zhang, K. Choudhary, M. Hu.
-> "High-throughput computational discovery of 3218 ultralow thermal
-> conductivity and dynamically stable materials by dual machine
-> learning models." *J. Mater. Chem. A*, 2023, 11, 24169-24183.
-> https://doi.org/10.1039/D3TA04874H
-
-> J. Ojih, U. Onyekpe, A. Rodriguez, J. Hu, C. Peng, M. Hu. "Machine
-> Learning Accelerated Discovery of Promising Thermal Energy Storage
-> Materials with High Heat Capacity." *ACS Appl. Mater. Interfaces*,
-> 2022, 14, 43277-43289. https://doi.org/10.1021/acsami.2c11350
-
 **Repo:** https://github.com/ojihjoshuaovoke-collab/crystal-structure-prediction-low-ltc
 **Live demo:** _(add your Streamlit Cloud link here after redeploying)_
 
 ## What this is
 
 Two Random Forest models, trained on **4706 real DFT-calculated
-structures** (`data/combined_features.csv`), predicting:
+structures** (`data/combined_features.csv`) from the paper above,
+predicting:
 
 - **Lattice thermal conductivity (LTC)** — log10-scale, matching the
-  training approach used in the original papers
+  training approach used in the original paper
 - **Heat capacity** — raw units (J/mol·K)
 
 Unlike an earlier version of this project (which trained on a GNN's
 *predictions* on 646 newly-discovered structures — a copy of a
 model's output, not ground truth), this version trains directly on
-real DFT-calculated values — the same targets the original papers'
-graph neural networks (ALIGNN, deeperGATGNN) were trained on.
+real DFT-calculated values — the same targets the original paper's
+graph neural networks (ALIGNN, OGCNN, deeperGATGNN) were trained on.
 
 ## Real results (held-out 20% test split)
 
@@ -44,25 +34,25 @@ LTC:            R² = 0.761 (log10 scale), MAE = 0.269
 Heat capacity:   R² = 0.997, MAE = 1.67 J/mol-K
 ```
 
-For comparison, the original papers' graph neural networks (which
-learn directly from the full crystal graph, not summary descriptors)
-achieve R² = 0.834 for LTC (Ojih et al. 2023) and R² = 0.998 for heat
-capacity (Ojih et al. 2022). A Random Forest on 11 hand-picked
-descriptors reaching R² = 0.76 for LTC and R² = 0.997 for heat
-capacity is a strong, honest result for a much simpler model —
-particularly for heat capacity, where `Number of Atom` alone accounts
-for 95% of feature importance, consistent with the Dulong-Petit
-relationship (C ≈ 3NR) both papers discuss.
+A Random Forest on 11 hand-picked descriptors reaching R² = 0.76 for
+LTC and R² = 0.997 for heat capacity is a strong, honest result for a
+much simpler model than the original paper's graph neural networks
+(which learn directly from the full crystal graph, not summary
+descriptors). Heat capacity is notably easier to predict —
+`Number of Atom` alone accounts for 95% of feature importance,
+consistent with the Dulong-Petit relationship (C ≈ 3NR).
 
 ## The Dulong-Petit limit
 
 Heat capacity predictions are shown alongside the classical
 Dulong-Petit limit (3NR) and their ratio to it. A ratio above 1 is
-rare but **not automatically an error** — Ojih et al. 2022 found a
-real, DFT-verified example (MnIn₂Se₄) that genuinely exceeds the
-limit near room temperature, driven by a phonon band-gap/optical-
-branch effect confirmed via full phonon dispersion calculations. The
-app flags ratio > 1 as worth closer inspection, not as invalid.
+rare but **not automatically an error** — a related paper of mine
+(Ojih et al., *ACS Appl. Mater. Interfaces*, 2022,
+https://doi.org/10.1021/acsami.2c11350) found a real, DFT-verified
+example (MnIn₂Se₄) that genuinely exceeds the limit near room
+temperature, driven by a phonon band-gap/optical-branch effect
+confirmed via full phonon dispersion calculations. The app flags
+ratio > 1 as worth closer inspection, not as invalid.
 
 ## App
 
@@ -108,8 +98,8 @@ materials-ltc-app/
 
 ## Attribution
 
-Built on my own peer-reviewed, first-author publications, using real
-DFT-calculated data from that research. This is an independent,
-simplified Random Forest surrogate of the original papers' graph
-neural network models, built for portfolio/deployment purposes — not
-a claim of equivalent accuracy to the original GNNs.
+Built on my own peer-reviewed, first-author publication (CC-BY-NC
+4.0), using real DFT-calculated data from that research. This is an
+independent, simplified Random Forest surrogate of the original
+paper's graph neural network models, built for portfolio/deployment
+purposes — not a claim of equivalent accuracy to the original GNNs.
