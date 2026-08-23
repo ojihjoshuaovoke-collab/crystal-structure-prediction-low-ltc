@@ -46,13 +46,12 @@ consistent with the Dulong-Petit relationship (C ≈ 3NR).
 
 Heat capacity predictions are shown alongside the classical
 Dulong-Petit limit (3NR) and their ratio to it. A ratio above 1 is
-rare but **not automatically an error** — a related paper of mine
-(Ojih et al., *ACS Appl. Mater. Interfaces*, 2022,
-https://doi.org/10.1021/acsami.2c11350) found a real, DFT-verified
-example (MnIn₂Se₄) that genuinely exceeds the limit near room
-temperature, driven by a phonon band-gap/optical-branch effect
-confirmed via full phonon dispersion calculations. The app flags
-ratio > 1 as worth closer inspection, not as invalid.
+rare but not automatically an error — real materials can occasionally
+exceed the classical phonon-only limit through effects like a phonon
+band-gap/optical-branch structure that keeps additional modes
+thermally populated near room temperature. The app flags ratio > 1 as
+worth closer inspection (e.g. checking the phonon dispersion), not as
+an automatic error.
 
 ## App
 

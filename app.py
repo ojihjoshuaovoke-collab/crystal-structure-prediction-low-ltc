@@ -3,8 +3,6 @@ Streamlit app: LTC & Heat Capacity Predictor
 
 Trained on real DFT ground truth from my own published research:
 - Ojih et al., J. Mater. Chem. A, 2024, 12, 8502 (crystal structure discovery)
-- Ojih et al., J. Mater. Chem. A, 2023, 11, 24169 (LTC screening, P3/MSD descriptors)
-- Ojih et al., ACS Appl. Mater. Interfaces, 2022, 14, 43277 (heat capacity, Dulong-Petit)
 
 Two Random Forest models trained on 4706 real DFT-calculated structures:
 one predicts lattice thermal conductivity (LTC), one predicts heat
@@ -28,9 +26,7 @@ st.set_page_config(page_title="LTC & Heat Capacity Predictor", page_icon="🔬")
 st.title("🔬 LTC & Heat Capacity Predictor")
 st.caption(
     "Trained on 4706 real DFT-calculated structures from my published research on "
-    "[crystal structure discovery](https://doi.org/10.1039/D3TA06190F), "
-    "[LTC screening](https://doi.org/10.1039/D3TA04874H), and "
-    "[thermal energy storage materials](https://doi.org/10.1021/acsami.2c11350)."
+    "[crystal structure discovery](https://doi.org/10.1039/D3TA06190F)."
 )
 
 LTC_MODEL_PATH = "model_ltc_real.joblib"
@@ -79,10 +75,11 @@ def predict_and_display(features: dict, accurate: bool):
     if ratio > 1.0:
         st.warning(
             "Predicted heat capacity exceeds the classical Dulong-Petit limit. "
-            "This is rare but not necessarily wrong \u2014 a real example (MnIn\u2082Se\u2084) was "
-            "confirmed by full phonon dispersion calculations in Ojih et al. 2022, driven by "
-            "a phonon band-gap/optical-branch effect. Treat this as a flag for closer "
-            "inspection (e.g. phonon dispersion), not an automatic error.",
+            "This is rare but not necessarily wrong \u2014 real materials can occasionally "
+            "exceed the classical phonon-only limit through effects like a phonon "
+            "band-gap/optical-branch structure that keeps additional modes thermally "
+            "populated near room temperature. Treat this as a flag for closer inspection "
+            "(e.g. phonon dispersion), not an automatic error.",
             icon="\u26A0\ufe0f",
         )
 
