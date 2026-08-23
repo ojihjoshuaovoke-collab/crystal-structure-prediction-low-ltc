@@ -42,17 +42,6 @@ descriptors). Heat capacity is notably easier to predict —
 `Number of Atom` alone accounts for 95% of feature importance,
 consistent with the Dulong-Petit relationship (C ≈ 3NR).
 
-## The Dulong-Petit limit
-
-Heat capacity predictions are shown alongside the classical
-Dulong-Petit limit (3NR) and their ratio to it. A ratio above 1 is
-rare but not automatically an error — real materials can occasionally
-exceed the classical phonon-only limit through effects like a phonon
-band-gap/optical-branch structure that keeps additional modes
-thermally populated near room temperature. The app flags ratio > 1 as
-worth closer inspection (e.g. checking the phonon dispersion), not as
-an automatic error.
-
 ## App
 
 `app.py` (Streamlit) has two modes:
