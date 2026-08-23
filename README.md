@@ -10,7 +10,7 @@ A deployed, interactive tool built on real DFT data from my own published resear
 > A*, 2024, 12, 8502-8515. https://doi.org/10.1039/D3TA06190F
 
 **Repo:** https://github.com/ojihjoshuaovoke-collab/crystal-structure-prediction-low-ltc
-**Live demo:** https://ojihjoshuaovoke-collab-crystal-structure-prediction--app-yc8syi.streamlit.app
+**Live demo:** [Try it live \u2192 predict LTC & heat capacity from a CIF or formula](https://ojihjoshuaovoke-collab-crystal-structure-prediction--app-yc8syi.streamlit.app)
 
 ## What this is
 
