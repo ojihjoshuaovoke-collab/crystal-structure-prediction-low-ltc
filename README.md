@@ -1,5 +1,7 @@
 # LTC & Heat Capacity Predictor
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ojihjoshuaovoke-collab-crystal-structure-prediction--app-yc8syi.streamlit.app)
+
 A deployed, interactive tool built on real DFT data from my own published research:
 
 > J. Ojih, M. Al-Fahdi, Y. Yao, J. Hu, M. Hu. "Graph theory and graph
@@ -8,7 +10,7 @@ A deployed, interactive tool built on real DFT data from my own published resear
 > A*, 2024, 12, 8502-8515. https://doi.org/10.1039/D3TA06190F
 
 **Repo:** https://github.com/ojihjoshuaovoke-collab/crystal-structure-prediction-low-ltc
-**Live demo:** _(https://ojihjoshuaovoke-collab-crystal-structure-prediction--app-yc8syi.streamlit.app)_
+**Live demo:** https://ojihjoshuaovoke-collab-crystal-structure-prediction--app-yc8syi.streamlit.app
 
 ## What this is
 
